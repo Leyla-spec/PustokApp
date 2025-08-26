@@ -7,6 +7,6 @@ namespace PustokApp.Models.BookSlider
         [Required]
         public string ImageUrl { get; set; }
         public int BookId { get; set; }
-        public Book? Book { get; set; }
+        public Book Book { get; set; }
     }
 }

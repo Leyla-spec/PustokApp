@@ -12,14 +12,14 @@ namespace PustokApp.Models.BookSlider
         [Required]
         [StringLength(100, ErrorMessage = "Name can not be longer than 100 chars")]
         public string Description { get; set; }
-        public Author? Author { get; set; }
+        public Author Author { get; set; }
         public int AuthorId { get; set; }
-        public List<BookImage>? BookImages { get; set; }
+        public List<BookImage> BookImages { get; set; }
         [Required]
         public string MainImageUrl { get; set; }
         [Required]
         public string HoverImageUrl { get; set; }
-        public Genres? Genre { get; set; }
+        public Genres Genre { get; set; }
         public int GenreId { get; set; }
         [Column (TypeName = "decimal(18,2)")]
         public decimal OldPrice { get; set; }
@@ -27,7 +27,7 @@ namespace PustokApp.Models.BookSlider
         public bool IsFeatured { get; set; }
         public bool IsNew { get; set; }
         public bool InStock { get; set; }
-        public string? Code { get; set; }
-        public List<BookTag>? BookTags { get; set; }
+        public string Code { get; set; }
+        public List<BookTag> BookTags { get; set; }
     }
 }

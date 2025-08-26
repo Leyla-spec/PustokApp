@@ -7,6 +7,6 @@ namespace PustokApp.Models.BookSlider
         [Required]
         [StringLength(50, ErrorMessage = "Name can not be longer than 50 chars")]
         public string Name { get; set; }
-        public List<Book>? Books { get; set; }
+        public List<Book> Books { get; set; }
     }
 }
