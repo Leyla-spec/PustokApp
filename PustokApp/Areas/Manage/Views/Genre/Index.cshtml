@@ -1,0 +1,69 @@
+﻿@model List<Genres>
+<div class="container">
+    <div class="row mb-3">
+        <div class="col-12 d-flex justify-content-between align-items-center">
+            <h1>Genres</h1>
+            <a asp-area="manage" asp-controller="genre" asp-action="create" class="btn btn-primary">Create Genre</a>
+        </div>
+     </div>
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Handle</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var genre in Model)
+                {
+                    <tr>
+                        <td>@genre.Name</td>
+                        <td>
+                            <a asp-area="manage" asp-controller="genre" asp-action="edit" asp-route-id="@genre.Id" class="btn btn-sm btn-info">Edit</a>
+                                <a asp-area="manage" asp-controller="genre" asp-action="detail" asp-route-id="@genre.Id" class="btn btn-sm btn-info">Detail</a>
+                                <a asp-area="manage" asp-controller="genre" asp-action="delete" asp-route-id="@genre.Id" class="btn btn-sm btn-info delete">Delete</a>
+                        </td>
+                    </tr>
+                }
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+@section Scripts{
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(document).ready(function(){
+            $('.delete').click(function(e){
+                e.preventDefault();
+                var url = $(this).attr('href');
+                       Swal.fire({
+          title: "Do you want to save the changes?",
+          showDenyButton: true,
+          confirmButtonText: "Delete",
+        }).then((result) => {
+          /* Read more about isConfirmed, isDenied below */
+          if (result.isConfirmed) {
+            fetch(url).then(res => {
+                if(res.ok){
+                    swalWithBootstrapButtons.fire(
+                        title: "Deleted!",
+                        text: "Your file has been deleted.",
+                        icon: "success"
+                    )
+                }
+                else {
+                     swalWithBootstrapButtons.fire(
+                        title: "Canceled!",
+                        text: "Your file is safe.",
+                        icon: "error"
+                    )
+                }
+            });
+          } 
+        });
+            });
+        });
+    </script>   
+}
