@@ -1,0 +1,46 @@
+﻿@model Slider
+<div class="container">
+    <div class="row justify-content-center">
+        <form method="post" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label asp-for="Title">Title</label>
+                <input asp-for="Title" class="form-control" placeholder="Title">
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Description">Description</label>
+                <input asp-for="Description" class="form-control" placeholder="Description">
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="BtnLink"></label>
+                <input asp-for="BtnLink" class="form-control" placeholder="BtnLink">
+                <span asp-validation-for="BtnLink" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Btntext"></label>
+                <input asp-for="Btntext" class="form-control" placeholder="Btntext">
+                <span asp-validation-for="Btntext" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order"></label>
+                <input asp-for="Order" class="form-control" placeholder="Order">
+                <span asp-validation-for="Order" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="File"></label>
+                <input asp-for="File" class="form-control" placeholder="File">
+                <span asp-validation-for="File" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.21.0/jquery.validate.min.js" integrity="sha512-KFHXdr2oObHKI9w4Hv1XPKc898mE4kgYx58oqsc/JqqdLMDI4YjOLzom+EMlW8HFUd0QfjfAvxSL6sEq/a42fQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js" integrity="sha512-xq+Vm8jC94ynOikewaQXMEkJIOBp7iArs3IhFWSWdRT3Pq8wFz46p+ZDFAR7kHnSFf+zUv52B3prRYnbDRdgog==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+}

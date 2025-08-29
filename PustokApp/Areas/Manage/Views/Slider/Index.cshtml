@@ -1,28 +1,40 @@
-﻿@model List<Genres>
+﻿@model List<Slider>
 <div class="container">
     <div class="row mb-3">
         <div class="col-12 d-flex justify-content-between align-items-center">
-            <h1>Genres</h1>
-            <a asp-area="manage" asp-controller="genre" asp-action="create" class="btn btn-primary">Create Genre</a>
+            <h1>Slider</h1>
+            <a asp-area="manage" asp-controller="slider" asp-action="create" class="btn btn-primary">Create slider</a>
         </div>
-     </div>
+    </div>
     <div class="row">
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Name</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Desc</th>
+                    <th scope="col">BTxt</th>
+                    <th scope="col">BLink</th>
+                    <th scope="col">Order</th>
                     <th scope="col">Handle</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var genre in Model)
+                @foreach (var slider in Model)
                 {
                     <tr>
-                        <td>@genre.Name</td>
                         <td>
-                            <a asp-area="manage" asp-controller="genre" asp-action="edit" asp-route-id="@genre.Id" class="btn btn-sm btn-info">Edit</a>
-                                <a asp-area="manage" asp-controller="genre" asp-action="detail" asp-route-id="@genre.Id" class="btn btn-sm btn-info">Detail</a>
-                                <a asp-area="manage" asp-controller="genre" asp-action="delete" asp-route-id="@genre.Id" class="btn btn-sm btn-info delete">Delete</a>
+                            <img src="~image/bg-images/@slider.ImageUrl" alt="Slider Image" style="width:100px; height:auto;" />
+                            </td>
+                        <td>@slider.Title</td>
+                        <td>@slider.Description</td>
+                        <td>@slider.Btntext</td>
+                        <td>@slider.BtnLink</td>
+                        <td>@slider.Order</td>
+                        <td>
+                            <a asp-area="manage" asp-controller="slider" asp-action="edit" asp-route-id="@slider.Id" class="btn btn-sm btn-info">Edit</a>
+                            <a asp-area="manage" asp-controller="slider" asp-action="detail" asp-route-id="@slider.Id" class="btn btn-sm btn-info">Detail</a>
+                            <a asp-area="manage" asp-controller="slider" asp-action="delete" asp-route-id="@slider.Id" class="btn btn-sm btn-info delete">Delete</a>
                         </td>
                     </tr>
                 }
@@ -30,7 +42,7 @@
         </table>
     </div>
 </div>
-@section Scripts{
+@section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $(document).ready(function(){
@@ -60,9 +72,9 @@
                     )
                 }
             });
-          } 
+          }
         });
             });
         });
-    </script>   
+    </script>
 }

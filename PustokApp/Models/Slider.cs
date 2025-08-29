@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PustokApp.Models
 {
     public class Slider : AuditEntity
     {
         public int Id { get; set; }
-        [Required]
         public string ImageUrl { get; set; }
         [Required]
         public string Title { get; set; }
@@ -16,5 +16,8 @@ namespace PustokApp.Models
         public string BtnLink { get; set; }
         public bool IsActive { get; set; }
         public int Order { get; set; }
+        [NotMapped]
+        public IFormFile File { get; set; }
+        public DateTime UpdatedAt { get; internal set; }
     }
 }

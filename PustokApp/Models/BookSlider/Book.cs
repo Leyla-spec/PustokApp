@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using PustokApp.Attributes;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PustokApp.Models.BookSlider
@@ -15,9 +16,7 @@ namespace PustokApp.Models.BookSlider
         public Author Author { get; set; }
         public int AuthorId { get; set; }
         public List<BookImage> BookImages { get; set; }
-        [Required]
         public string MainImageUrl { get; set; }
-        [Required]
         public string HoverImageUrl { get; set; }
         public Genres Genre { get; set; }
         public int GenreId { get; set; }
@@ -29,5 +28,25 @@ namespace PustokApp.Models.BookSlider
         public bool InStock { get; set; }
         public string Code { get; set; }
         public List<BookTag> BookTags { get; set; }
+        [NotMapped]
+        [FileLength(2)]
+        [ContentType(["image/jpeg", "image/png", "image/jpg"])]
+        public IFormFile MainPhoto { get; set; }
+        [NotMapped]
+        [FileLength(2)]
+        [ContentType(["image/jpeg", "image/png", "image/jpg"])]
+        public IFormFile HoverPhoto { get; set; }
+        [NotMapped]
+        [FileLength(2)]
+        [ContentType(["image/jpeg", "image/png", "image/jpg"])]
+        public IFormFile[] Photos { get; set; }
+        public List <int> TagIds { get; set; }
+        public Book()
+        {
+            BookImages = new List<BookImage>();
+            BookTags = new List<BookTag>();
+            TagIds = new List<int>();
+        }
     }
+    
 }

@@ -1,0 +1,103 @@
+﻿@model Book
+@{
+    var genres = ViewBag.Genres as List<Genres>;
+    var authors = ViewBag.Authors as List<Author>;
+    var tags = ViewBag.Tags as List<Tag>;
+}
+<div class="container">
+    <div class="row justify-content-center">
+        <form method="post" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label asp-for="Title">Title</label>
+                <input asp-for="Title" class="form-control" placeholder="Title">
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Description">Description</label>
+                <input asp-for="Description" class="form-control" placeholder="Description">
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Code"></label>
+                <input asp-for="Code" class="form-control" placeholder="Code">
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="DiscountPercentage"></label>
+                <input asp-for="DiscountPercentage" class="form-control" placeholder="DiscountPercentage">
+                <span asp-validation-for="DiscountPercentage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OldPrice"></label>
+                <input asp-for="OldPrice" class="form-control" placeholder="OldPrice">
+                <span asp-validation-for="OldPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsFeatured"></label>
+                <input asp-for="IsFeatured" class="form-control" placeholder="IsFeatured">
+                <span asp-validation-for="IsFeatured" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InStock"></label>
+                <input asp-for="InStock" class="form-control" placeholder="InStock">
+                <span asp-validation-for="InStock" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsNew"></label>
+                <input asp-for="IsNew" class="form-control" placeholder="IsNew">
+                <span asp-validation-for="IsNew" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MainPhoto"></label>
+                <input asp-for="MainPhoto" class="form-control" placeholder="MainPhoto">
+                <span asp-validation-for="MainPhoto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HoverPhoto"></label>
+                <input asp-for="HoverPhoto" class="form-control" placeholder="HoverPhoto">
+                <span asp-validation-for="HoverPhoto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Photos"></label>
+                <input asp-for="Photos" class="form-control" placeholder="Photos">
+                <span asp-validation-for="Photos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <select asp-for="GenreId" >
+                   @foreach (var item in genres)
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
+
+                </select>
+            </div>
+            <div class="form-group">
+                <select asp-for="AuthorId">
+                    @foreach (var item in authors)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+
+                </select>
+            </div>
+            <div class="form-group">
+                <select asp-for="TagIds" multiple>
+                    @foreach (var item in tags)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+             </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.21.0/jquery.validate.min.js" integrity="sha512-KFHXdr2oObHKI9w4Hv1XPKc898mE4kgYx58oqsc/JqqdLMDI4YjOLzom+EMlW8HFUd0QfjfAvxSL6sEq/a42fQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js" integrity="sha512-xq+Vm8jC94ynOikewaQXMEkJIOBp7iArs3IhFWSWdRT3Pq8wFz46p+ZDFAR7kHnSFf+zUv52B3prRYnbDRdgog==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+}
