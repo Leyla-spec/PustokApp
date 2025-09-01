@@ -1,4 +1,6 @@
-﻿@model Genres 
+﻿@model Genres
+
+<div id="detailModalContainer"></div>
 
 <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -8,33 +10,52 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="row mb-3">
-                    <div class="col-sm-4">
-                        <strong>Id:</strong>
-                    </div>
-                    <div class="col-sm-8">
-                        @Model.Id
-                        </div>
-                    <div class="col-sm-4">
-                        <strong>Name:</strong>
-                    </div>
-                    <div class="col-sm-8">
-                        @Model.Name
-                    </div>
-                    <div class="col-sm-4">
-                        <strong>Books Count:</strong>
-                    </div>
-                    <div class="col-sm-8">
-                        @(Model.Books?.Count ?? 0)
-                    </div>
+                <div class="mb-2 row">
+                    <label class="col-sm-4 fw-bold">Id:</label>
+                    <div class="col-sm-8">@Model?.Id</div>
+                </div>
+                <div class="mb-2 row">
+                    <label class="col-sm-4 fw-bold">Name:</label>
+                    <div class="col-sm-8">@Model?.Name</div>
+                </div>
+                <div class="mb-2 row">
+                    <label class="col-sm-4 fw-bold">Books Count:</label>
+                    <div class="col-sm-8">@(Model?.Books?.Count ?? 0)</div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <a asp-area="manage" asp-controller="genre" asp-action="edit" asp-route-id="@Model.Id" class="btn btn-sm btn-info">Edit</a>
+                <a asp-area="manage" asp-controller="genre" asp-action="index" type="button" class="btn btn-primary" >Close</a>
+                <a asp-area="manage" asp-controller="genre" asp-action="edit" asp-route-id="@Model?.Id" class="btn btn-info btn-sm">Edit</a>
             </div>
+        </div>
     </div>
 </div>
-</div>
+@section Scripts {
+    <script>
+        $(document).ready(function(){
+            $('.detail-btn').click(function(e){
+                e.preventDefault();
+                var id = $(this).data('id'); 
 
+                  $.get('/manage/genre/detail', { id: id }, function(html){
+                    
+                    Swal.fire({
+                        title: 'Genre Details',
+                        html: html, 
+                        showCloseButton: true,
+                        focusConfirm: false,
+                        showClass: {
+                            popup: 'animate__animated animate__fadeInUp animate__faster'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOutDown animate__faster'
+                        },
+                        width: '600px', 
+                        confirmButtonText: 'Close'
+                    });
+                });
+            });
+        });
+    </script>
+}
 

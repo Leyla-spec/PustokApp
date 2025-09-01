@@ -13,7 +13,8 @@ namespace PustokApp.Areas.Manage.Controllers
         [Area("Manage")]
         public IActionResult Index()
         {
-            return View();
+            var sliders = pustokDbContext.Sliders.ToList();
+            return View(sliders);
         }
         public IActionResult Create()
         {
@@ -100,7 +101,7 @@ namespace PustokApp.Areas.Manage.Controllers
             existSlider.BtnLink = slider.BtnLink;
             existSlider.IsActive = slider.IsActive;
             existSlider.Order = slider.Order;
-            existSlider.UpdatedAt = DateTime.Now;
+            existSlider.UpdateAt = slider.UpdateAt;
             pustokDbContext.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -1,4 +1,5 @@
 ﻿using PustokApp.Attributes;
+using PustokApp.Models.Common;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 

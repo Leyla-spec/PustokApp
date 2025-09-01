@@ -1,11 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PustokApp.Data;
+using AutoMapper;
 
 namespace PustokApp.Controllers
 {
     public class BookController
-        (PustokDbContex pustokDbContex)
+        (PustokDbContex pustokDbContex,
+        IMapper mapper)
         : Controller
     {
         public IActionResult Index()

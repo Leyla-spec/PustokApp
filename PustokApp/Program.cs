@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using PustokApp.Data;
+using PustokApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,7 @@ builder.Services.AddDbContext<PustokDbContex>(opt =>
 opt.UseSqlServer("Server=.\\SQLEXPRESS;Database=PustokApp;Trusted_Connection=True;TrustServerCertificate=True;"
 , sqlOptions => sqlOptions.CommandTimeout(180)
 ));
+builder.Services.AddScoped<LayoutService>();
 
 var app = builder.Build();
 

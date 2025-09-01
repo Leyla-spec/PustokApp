@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using PustokApp.Models.BookSlider;
+using PustokApp.Models.Common;
 
 namespace PustokApp.Models
 {
@@ -18,6 +20,5 @@ namespace PustokApp.Models
         public int Order { get; set; }
         [NotMapped]
         public IFormFile File { get; set; }
-        public DateTime UpdatedAt { get; internal set; }
     }
 }

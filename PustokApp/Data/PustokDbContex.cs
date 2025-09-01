@@ -18,6 +18,6 @@ namespace PustokApp.Data
         public DbSet<Genres> Genre { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<BookTag> BookTags { get; set; }
-
+        public DbSet<Setting> Settings { get; set; }
     }
 }

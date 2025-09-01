@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using PustokApp.Models.Common;
+using System.ComponentModel.DataAnnotations;
 
 namespace PustokApp.Models.BookSlider
 {

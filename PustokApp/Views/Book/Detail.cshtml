@@ -1,6 +1,6 @@
 ﻿@model Book
 @{
-    ViewData["Details"] = "Product Details"; 
+    Layout = "_Layout";
 }
 
 <section class="breadcrumb-section">
@@ -92,9 +92,7 @@
                 <article class="product-details-article">
                     <h4 class="sr-only">Product Summery</h4>
                     <p>
-                        Long printed dress with thin adjustable straps. V-neckline and wiring under the Dust
-                        with ruffles at the bottom of the
-                        dress.
+                        @Model.Description
                     </p>
                 </article>
                 <div class="add-to-cart-row">

@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using PustokApp.Data;
 using PustokApp.Extension;
 using PustokApp.Models.BookSlider;
-using PustokApp.Extension;
 using PustokApp.Models;
 
 namespace PustokApp.Areas.Manage.Controllers

@@ -1,4 +1,4 @@
-﻿namespace PustokApp.Models
+﻿namespace PustokApp.Models.Common
 {
     public class AuditEntity
     {

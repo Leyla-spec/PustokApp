@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using PustokApp.Data;
 using PustokApp.Models.BookSlider;
 
@@ -22,15 +23,17 @@ namespace PustokApp.Areas.Manage.Controllers
 
         public IActionResult Create(Genres genre)
         {
+           
             if (!ModelState.IsValid)
                 return View();
             if (pustokDbContex.Genre.Any(g => g.Name.ToLower() == genre.Name.ToLower()))
             {
                 ModelState.AddModelError("Name", "This genre already exists");
-                return View();
+                return BadRequest();
             }
             pustokDbContex.Genre.Add(genre);
             pustokDbContex.SaveChanges();
+            int newGenreId = genre.Id;
             return RedirectToAction(nameof(Index));
         }
         public IActionResult Delete(int? id)
@@ -74,7 +77,9 @@ namespace PustokApp.Areas.Manage.Controllers
         }
         public IActionResult Detail(int? id)
         {
-            var genre = pustokDbContex.Genre.Find(id);
+            var genre = pustokDbContex.Genre
+                .Include(g => g.Books)
+                .FirstOrDefault(g => g.Id ==id);
             if (id == null)
                 return NotFound();
             if (genre is null)
