@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using PustokApp.Models;
 using PustokApp.Models.BookSlider;
 
 namespace PustokApp.Data
 {
-    public class PustokDbContex(DbContextOptions<PustokDbContex> options): DbContext(options)
+    public class PustokDbContex(DbContextOptions<PustokDbContex> options): IdentityDbContext<AppUser>(options)
     {
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
