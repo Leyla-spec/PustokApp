@@ -10,7 +10,8 @@ namespace PustokApp.Areas.Manage.Controllers
     [Area("Manage")]
     public class AccountController 
         (UserManager<AppUser> userManager,
-        SignInManager<AppUser> signInManager
+        SignInManager<AppUser> signInManager,
+        RoleManager<IdentityRole> roleManager
         )
         : Controller
 
@@ -62,7 +63,8 @@ namespace PustokApp.Areas.Manage.Controllers
             {
                return Json(result.Errors);
             }
-            return RedirectToAction(nameof(Login));
+            await userManager.AddToRoleAsync(appUser, "Admin");
+            return Json(result);
         }
         [Authorize]
         public async Task<IActionResult> UserProfile()

@@ -329,8 +329,18 @@
                             <div class="main-navigation flex-lg-right">
                                 <div class="cart-widget">
                                     <div class="login-block">
-                                        <a href="login-register.html" class="font-weight-bold">Login</a> <br>
-                                        <span>or</span><a href="login-register.html">Register</a>
+                                        @if (!User.Identity.IsAuthenticated)
+                                        {
+                                            <a asp-controller="Account" asp-action="UserProfile">@User.Identity.Name</a>
+                                            <br />
+                                            <a asp-controller="Account" asp-action="Logout" method="post">Logout</a>
+                                        }
+                                        else
+                                        {
+                                            <a asp-controller="Account" asp-action="Login">Login</a>
+                                            <br />
+                                            <a asp-controller="Account" asp-action="Register">Register</a>
+                                        }
                                     </div>
                                     <div class="cart-block">
                                         <div class="cart-total">
@@ -954,7 +964,9 @@
 <script src="~/js/plugins.js"></script>
 <script src="~/js/ajax-mail.js"></script>
 <script src="~/js/custom.js"></script>
+    @RenderSection("Scripts", required: true)
 </body>
+
 
 
 <!-- Mirrored from htmldemo.net/pustok/pustok/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 21 Jan 2025 07:32:22 GMT -->
