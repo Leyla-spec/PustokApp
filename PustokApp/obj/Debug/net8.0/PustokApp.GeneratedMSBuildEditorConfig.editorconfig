@@ -28,8 +28,8 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/User/Desktop/PustokApp-main/PustokApp/Areas/Manage/Views/Acount/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXEFjb3VudFxMb2dpbi5jc2h0bWw=
+[C:/Users/User/Desktop/PustokApp-main/PustokApp/Areas/Manage/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXEFjY291bnRcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/User/Desktop/PustokApp-main/PustokApp/Areas/Manage/Views/Book/Create.cshtml]
@@ -82,6 +82,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/User/Desktop/PustokApp-main/PustokApp/Areas/Manage/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/PustokApp-main/PustokApp/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/User/Desktop/PustokApp-main/PustokApp/Views/Book/Detail.cshtml]

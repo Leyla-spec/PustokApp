@@ -410,3 +410,5 @@ C:\Users\User\Desktop\PustokApp-main\PustokApp\bin\Debug\net8.0\runtimes\win\lib
 C:\Users\User\Desktop\PustokApp-main\PustokApp\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
 C:\Users\User\Desktop\PustokApp-main\PustokApp\obj\Debug\net8.0\PustokApp.sourcelink.json
 C:\Users\User\Desktop\PustokApp-main\PustokApp\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\User\Desktop\PustokApp-main\PustokApp\bin\Debug\net8.0\Microsoft.AspNet.Identity.Core.dll
+C:\Users\User\Desktop\PustokApp-main\PustokApp\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
