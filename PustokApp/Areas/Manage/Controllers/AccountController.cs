@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Humanizer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
 using PustokApp.Areas.Manage.ViewModels;
 using PustokApp.Models;
 using System.Security.Claims;
@@ -34,6 +36,12 @@ namespace PustokApp.Areas.Manage.Controllers
             {
                 ModelState.AddModelError("", "Username or Password is incorrect");
                 return View();
+            }
+            if(await userManager.IsInRoleAsync(user, "Member"))
+            {
+                ModelState.AddModelError("", "You are not allowed to login here.");
+                return View();
+
             }
             var result = await userManager.CheckPasswordAsync(user, adminLoginVm.Password);
             if(!result)

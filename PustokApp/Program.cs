@@ -28,7 +28,10 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(opt=>
     opt.Lockout.MaxFailedAccessAttempts = 5;
     opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);
     opt.Lockout.AllowedForNewUsers = true;
-}).AddEntityFrameworkStores<PustokDbContex>().AddDefaultTokenProviders();
+    opt.SignIn.RequireConfirmedEmail = true;
+}).AddDefaultTokenProviders()
+    .AddEntityFrameworkStores<PustokDbContex>()
+.AddDefaultTokenProviders();
 
 var app = builder.Build();
 app.UseSession();

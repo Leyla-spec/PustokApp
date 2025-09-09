@@ -4,7 +4,7 @@
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-sm-12 col-md-12 col-lg-6 col-xs-12">
-				<form action="https://htmldemo.net/pustok/pustok/">
+				<form method="post" asp-action="Login" asp-controller="Account">
 					<div class="login-form">
 						<h4 class="login-title">Returning Customer</h4>
 						<p><span class="font-weight-bold">I am a returning customer</span></p>
@@ -18,14 +18,17 @@
 							<div class="col-12 mb--20">
 								<label asp-for="Password"></label>
 								<input asp-for="Password" class="mb-0 form-control"
-									   placeholder="Enter you userPasswordname here...">
+									   placeholder="Enter you userName here...">
 								<span asp-validation-for="Password" class="text-danger"></span>
-							</div><div class="col-12 mb--20">
+							</div>
+							<div class="col-12 mb--20">
 								<label asp-for="RememberMe"></label>
 								<input asp-for="RememberMe">
 							</div>
+
 							<div class="col-md-12">
 								<button type="submit" class="btn btn-outlined">Login</button>
+								<a href="/account/forgotpassword">forgot password</a>
 							</div>
                             <div class="text-danger" asp-validation-summary="ModelOnly"></div>
 						</div>
