@@ -42,12 +42,15 @@ namespace PustokApp.Models.BookSlider
         [ContentType(["image/jpeg", "image/png", "image/jpg"])]
         public IFormFile[] Photos { get; set; }
         public List <int> TagIds { get; set; }
+        public List<BookComment> BookComment { get; set; }
+
         public Book()
         {
             BookImages = new List<BookImage>();
             BookTags = new List<BookTag>();
             TagIds = new List<int>();
         }
+
     }
     
 }

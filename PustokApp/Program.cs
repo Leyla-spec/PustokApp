@@ -1,37 +1,15 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using PustokApp;
 using PustokApp.Data;
 using PustokApp.Models;
 using PustokApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddAppServices(builder.Configuration);
 // Add services to the container.
-builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<PustokDbContex>(opt => 
-opt.UseSqlServer("Server=.\\SQLEXPRESS;Database=PustokApp;Trusted_Connection=True;TrustServerCertificate=True;"
-, sqlOptions => sqlOptions.CommandTimeout(180)
-));
-builder.Services.AddScoped<LayoutService>();
-builder.Services.AddSession(opt =>
-{
-    opt.IdleTimeout = TimeSpan.FromMinutes(20);
-});
-builder.Services.AddIdentity<AppUser, IdentityRole>(opt=> 
-{
-    opt.Password.RequireNonAlphanumeric = true;
-    opt.Password.RequiredLength = 4;
-    opt.User.RequireUniqueEmail = true;
-    opt.Password.RequireUppercase = true;
-    opt.Password.RequireLowercase = true;
-    opt.Password.RequireDigit = true;
-    opt.Lockout.MaxFailedAccessAttempts = 5;
-    opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);
-    opt.Lockout.AllowedForNewUsers = true;
-    opt.SignIn.RequireConfirmedEmail = true;
-}).AddDefaultTokenProviders()
-    .AddEntityFrameworkStores<PustokDbContex>()
-.AddDefaultTokenProviders();
+
 
 var app = builder.Build();
 app.UseSession();

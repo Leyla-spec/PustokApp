@@ -43,6 +43,11 @@ namespace PustokApp.Areas.Manage.Controllers
                 return View();
 
             }
+            if(await userManager.IsInRoleAsync(user, "Member"))
+            {
+                ModelState.AddModelError("", "You are not allowed to login here.");
+                return View();
+            }
             var result = await userManager.CheckPasswordAsync(user, adminLoginVm.Password);
             if(!result)
             {
